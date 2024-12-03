@@ -1,0 +1,103 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.background {
+    background-image: url('https://source.unsplash.com/1600x900/?travel');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    filter: brightness(0.7);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    max-width: 700px; /* Compact width */
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px; /* Reduced margin */
+    color: #333;
+    font-size: 2em; /* Adjusted font-size */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p, ul, li {
+    font-size: 1em; /* Consistent font-size */
+    color: #666;
+    line-height: 1.4; /* Adjusted line-height */
+    text-align: left;
+}
+
+.content {
+    margin-top: 15px; /* Reduced margin */
+}
+
+.content img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+h2 {
+    color: #444;
+    font-size: 1.4em; /* Adjusted font-size */
+    margin-top: 15px; /* Reduced margin */
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #222;
+}
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.home-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.home-link:hover {
+    background-color: #0056b3;
+}
+
+#response {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+}

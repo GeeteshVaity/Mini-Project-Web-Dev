@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Train</title>
+    <link rel="stylesheet" href="trains.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".select-train-btn").click(function() {
+                var trainDetails = $(this).data("details");
+                $("#selected-train").text("Selected Train: " + trainDetails);
+                $("#train-details").val(trainDetails);
+            });
+
+            $("#bookingForm").submit(function(event) {
+                event.preventDefault();
+                alert("Train booked successfully! Details: " + $("#train-details").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="background">
+        <div class="home-container">
+            <a href="index.html" class="home-link">Home</a>
+        </div>
+        <div class="container">
+            <h1>Available Trains</h1>
+            <div class="train-list">
+                <div class="train">
+                    <img src="delhi.jpg" alt="Train Image">
+                    <p><strong>Train:</strong> Rajdhani Express</p>
+                    <p><strong>From:</strong> Mumbai</p>
+                    <p><strong>To:</strong> Delhi</p>
+                    <p><strong>Departure:</strong> 8:00 AM</p>
+                    <p><strong>Arrival:</strong> 6:00 PM</p>
+                    <button class="select-train-btn" data-details="Rajdhani Express from Mumbai to Delhi, Departure: 8:00 AM, Arrival: 6:00 PM">Select Train</button>
+                </div>
+                <div class="train">
+                    <img src="banglore.jpg" alt="Train Image">
+                    <p><strong>Train:</strong> Shatabdi Express</p>
+                    <p><strong>From:</strong> Chennai</p>
+                    <p><strong>To:</strong> Bangalore</p>
+                    <p><strong>Departure:</strong> 6:00 AM</p>
+                    <p><strong>Arrival:</strong> 10:00 AM</p>
+                    <button class="select-train-btn" data-details="Shatabdi Express from Chennai to Bangalore, Departure: 6:00 AM, Arrival: 10:00 AM">Select Train</button>
+                </div>
+                <div class="train">
+                    <img src="mum.jpg" alt="Train Image">
+                    <p><strong>Train:</strong> Duronto Express</p>
+                    <p><strong>From:</strong> Kolkata</p>
+                    <p><strong>To:</strong> Mumbai</p>
+                    <p><strong>Departure:</strong> 5:00 PM</p>
+                    <p><strong>Arrival:</strong> 11:00 AM</p>
+                    <button class="select-train-btn" data-details="Duronto Express from Kolkata to Mumbai, Departure: 5:00 PM, Arrival: 11:00 AM">Select Train</button>
+                </div>
+                <!-- Add more trains as needed -->
+            </div>
+            <p id="selected-train">Selected Train: None</p>
+            <form id="bookingForm">
+                <input type="hidden" id="train-details" name="train-details">
+                <button type="submit">Book Train</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
