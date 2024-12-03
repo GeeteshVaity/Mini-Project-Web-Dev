@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Cab</title>
+    <link rel="stylesheet" href="cabs.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".select-cab-btn").click(function() {
+                var cabDetails = $(this).data("details");
+                $("#selected-cab").text("Selected Cab: " + cabDetails);
+                $("#cab-details").val(cabDetails);
+            });
+
+            $("#bookingForm").submit(function(event) {
+                event.preventDefault();
+                alert("Cab booked successfully! Details: " + $("#cab-details").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="background">
+        <div class="home-container">
+            <a href="index.html" class="home-link">Home</a>
+        </div>
+        <div class="container">
+            <h1>Available Cabs</h1>
+            <div class="cab-list">
+                <div class="cab">
+                    <img src="pune.jpg" alt="Cab Image">
+                    <p><strong>Cab:</strong> UberX</p>
+                    <p><strong>From:</strong> Mumbai</p>
+                    <p><strong>To:</strong> Pune</p>
+                    <p><strong>Price:</strong> ₹2,000</p>
+                    <button class="select-cab-btn" data-details="UberX from Mumbai to Pune, Price: ₹2,000">Select Cab</button>
+                </div>
+                <div class="cab">
+                    <img src="mys.jpg" alt="Cab Image">
+                    <p><strong>Cab:</strong> Ola Prime</p>
+                    <p><strong>From:</strong> Bangalore</p>
+                    <p><strong>To:</strong> Mysore</p>
+                    <p><strong>Price:</strong> ₹1,500</p>
+                    <button class="select-cab-btn" data-details="Ola Prime from Bangalore to Mysore, Price: ₹1,500">Select Cab</button>
+                </div>
+                <div class="cab">
+                    <img src="boston.jpg" alt="Cab Image">
+                    <p><strong>Cab:</strong> Lyft</p>
+                    <p><strong>From:</strong> New York</p>
+                    <p><strong>To:</strong> Boston</p>
+                    <p><strong>Price:</strong> $120</p>
+                    <button class="select-cab-btn" data-details="Lyft from New York to Boston, Price: $120">Select Cab</button>
+                </div>
+                <!-- Add more cabs as needed -->
+            </div>
+            <p id="selected-cab">Selected Cab: None</p>
+            <form id="bookingForm">
+                <input type="hidden" id="cab-details" name="cab-details">
+                <button type="submit">Book Cab</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

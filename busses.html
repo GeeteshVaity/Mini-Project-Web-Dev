@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Bus Ride</title>
+    <link rel="stylesheet" href="busses.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".select-bus-btn").click(function() {
+                var busDetails = $(this).data("details");
+                $("#selected-bus").text("Selected Bus: " + busDetails);
+                $("#bus-details").val(busDetails);
+            });
+
+            $("#bookingForm").submit(function(event) {
+                event.preventDefault();
+                alert("Bus booked successfully! Details: " + $("#bus-details").val());
+            });
+        });
+    </script>
+</head>
+<body>\
+    <div class="home-container">
+        <a href="index.html" class="home-link">Home</a>
+    </div>    
+    <div class="background">
+        <div class="container">
+            <h1>Available Bus Rides</h1>
+            <div class="bus-list">
+                <div class="bus">
+                    <img src="pune.jpg" alt="Bus Image">
+                    <p><strong>Bus:</strong> BS202</p>
+                    <p><strong>From:</strong> Mumbai</p>
+                    <p><strong>To:</strong> Pune</p>
+                    <p><strong>Departure:</strong> 8:00 AM</p>
+                    <p><strong>Arrival:</strong> 11:00 AM</p>
+                    <button class="select-bus-btn" data-details="BS202 from Mumbai to Pune, Departure: 8:00 AM, Arrival: 11:00 AM">Select Bus</button>
+                </div>
+                <div class="bus">
+                    <img src="chennai.jpg" alt="Bus Image">
+                    <p><strong>Bus:</strong> BS303</p>
+                    <p><strong>From:</strong> Bangalore</p>
+                    <p><strong>To:</strong> Chennai</p>
+                    <p><strong>Departure:</strong> 10:00 AM</p>
+                    <p><strong>Arrival:</strong> 3:00 PM</p>
+                    <button class="select-bus-btn" data-details="BS303 from Bangalore to Chennai, Departure: 10:00 AM, Arrival: 3:00 PM">Select Bus</button>
+                </div>
+                <div class="bus">
+                    <img src="agra.jpg" alt="Bus Image">
+                    <p><strong>Bus:</strong> BS404</p>
+                    <p><strong>From:</strong> Delhi</p>
+                    <p><strong>To:</strong> Agra</p>
+                    <p><strong>Departure:</strong> 6:00 PM</p>
+                    <p><strong>Arrival:</strong> 10:00 PM</p>
+                    <button class="select-bus-btn" data-details="BS404 from Delhi to Agra, Departure: 6:00 PM, Arrival: 10:00 PM">Select Bus</button>
+                </div>
+                <!-- Add more buses as needed -->
+            </div>
+            <p id="selected-bus">Selected Bus: None</p>
+            <form id="bookingForm">
+                <input type="hidden" id="bus-details" name="bus-details">
+                <button type="submit">Book Bus</button>
+            </form>
+        
+        </div>
+    </div>
+</body>
+</html>
