@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Hotel</title>
+    <link rel="stylesheet" href="hotel.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".select-hotel-btn").click(function() {
+                var hotelDetails = $(this).data("details");
+                $("#selected-hotel").text("Selected Hotel: " + hotelDetails);
+                $("#hotel-details").val(hotelDetails);
+            });
+
+            $("#bookingForm").submit(function(event) {
+                event.preventDefault();
+                alert("Hotel booked successfully! Details: " + $("#hotel-details").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="background">
+        <div class="home-container">
+            <a href="index.html" class="home-link">Home</a>
+        </div>
+        <div class="container">
+            <h1>Available Hotels</h1>
+            <div class="hotel-list">
+                <div class="hotel">
+                    <img src="in2.jpg" alt="Hotel Image">
+                    <p><strong>Hotel:</strong> The Grand Resort</p>
+                    <p><strong>Location:</strong> Goa</p>
+                    <p><strong>Rating:</strong> 5 Stars</p>
+                    <p><strong>Price:</strong> ₹12,000 per night</p>
+                    <button class="select-hotel-btn" data-details="The Grand Resort, Goa, 5 Stars, ₹12,000 per night">Select Hotel</button>
+                </div>
+                <div class="hotel">
+                    <img src="in3.jpg" alt="Hotel Image">
+                    <p><strong>Hotel:</strong> City Stay</p>
+                    <p><strong>Location:</strong> Mumbai</p>
+                    <p><strong>Rating:</strong> 4 Stars</p>
+                    <p><strong>Price:</strong> ₹8,000 per night</p>
+                    <button class="select-hotel-btn" data-details="City Stay, Mumbai, 4 Stars, ₹8,000 per night">Select Hotel</button>
+                </div>
+                <div class="hotel">
+                    <img src="in1.jpg" alt="Hotel Image">
+                    <p><strong>Hotel:</strong> Beachside Paradise</p>
+                    <p><strong>Location:</strong> Kerala</p>
+                    <p><strong>Rating:</strong> 4.5 Stars</p>
+                    <p><strong>Price:</strong> ₹10,000 per night</p>
+                    <button class="select-hotel-btn" data-details="Beachside Paradise, Kerala, 4.5 Stars, ₹10,000 per night">Select Hotel</button>
+                </div>
+                <!-- Add more hotels as needed -->
+            </div>
+            <p id="selected-hotel">Selected Hotel: None</p>
+            <form id="bookingForm">
+                <input type="hidden" id="hotel-details" name="hotel-details">
+                <button type="submit">Book Hotel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

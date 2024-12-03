@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Flight</title>
+    <link rel="stylesheet" href="flights.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Select flight
+            $(".select-flight-btn").click(function() {
+                var flightDetails = $(this).data("details");
+                $("#selected-flight").text("Selected Flight: " + flightDetails);
+                $("#flight-details").val(flightDetails);
+            });
+
+            // Submit booking form
+            $("#bookingForm").submit(function(event) {
+                event.preventDefault();
+                alert("Flight booked successfully! Details: " + $("#flight-details").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="home-container">
+        <a href="index.html" class="home-link">Home</a>
+    </div>    
+    <div class="background">
+        <div class="container">
+            <h1>Available Flights</h1>
+            <div class="flight-list">
+                <div class="flight">
+                    <img src="delhi.jpg" alt="Flight Image">
+                    <p><strong>Flight:</strong> AI202</p>
+                    <p><strong>From:</strong> Mumbai</p>
+                    <p><strong>To:</strong> Delhi</p>
+                    <p><strong>Departure:</strong> 10:00 AM</p>
+                    <p><strong>Arrival:</strong> 12:30 PM</p>
+                    <button class="select-flight-btn" data-details="AI202 from Mumbai to Delhi, Departure: 10:00 AM, Arrival: 12:30 PM">Select Flight</button>
+                </div>
+                <div class="flight">
+                    <img src="newyork.jpg" alt="Flight Image">
+                    <p><strong>Flight:</strong> BA101</p>
+                    <p><strong>From:</strong> London</p>
+                    <p><strong>To:</strong> New York</p>
+                    <p><strong>Departure:</strong> 2:00 PM</p>
+                    <p><strong>Arrival:</strong> 6:00 PM</p>
+                    <button class="select-flight-btn" data-details="BA101 from London to New York, Departure: 2:00 PM, Arrival: 6:00 PM">Select Flight</button>
+                </div>
+                <div class="flight">
+                    <img src="sy.jpg" alt="Flight Image">
+                    <p><strong>Flight:</strong> EK303</p>
+                    <p><strong>From:</strong> Dubai</p>
+                    <p><strong>To:</strong> Sydney</p>
+                    <p><strong>Departure:</strong> 5:00 PM</p>
+                    <p><strong>Arrival:</strong> 8:00 AM</p>
+                    <button class="select-flight-btn" data-details="EK303 from Dubai to Sydney, Departure: 5:00 PM, Arrival: 8:00 AM">Select Flight</button>
+                </div>
+                <!-- Add more flights as needed -->
+            </div>
+            <p id="selected-flight">Selected Flight: None</p>
+            <form id="bookingForm">
+                <input type="hidden" id="flight-details" name="flight-details">
+                <button type="submit">Book Flight</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
